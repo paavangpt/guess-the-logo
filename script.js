@@ -2,6 +2,7 @@ const welcome_button = document.querySelector(".welcome_button");
 const welcome_headings = document.querySelectorAll(".welcome_headings");
 const welcome_screen = document.querySelector(".welcome_screen");
 
+const modalContainer = document.querySelector(".modal_container");
 const modal = document.querySelector(".modal");
 const modalHeading = document.querySelector("#modal_heading");
 const modalSubheading = document.querySelector("#modal_subheading");
@@ -21,6 +22,7 @@ let files = [];
 let counter = 0;
 let curLogos;
 let rightLogo;
+let score = 0;
 
 let winStatements = [
     "There you go!",
@@ -95,6 +97,7 @@ function loadMainPage() {
 
                 message.style.color = "var(--success-color)";
                 message.textContent = winStatements[Math.floor(Math.random() * 3)];
+                score += 1;
             } else {
                 logoDivs[index].style.border = "7px solid var(--danger-color)";
                 logoDivs[index == 0 ? 1 : 0].style.border = "7px solid var(--success-color)";
@@ -108,10 +111,15 @@ function loadMainPage() {
             message.classList.add("animate__bounceIn");
             message.classList.remove("animate__bounceOut");
             
-            counter += 1;
-            if (counter == 24) {
-                nextLogoBtn.style.width = 0;
+            if (counter == 23) {
+                console.log("Came here!")
+                modalContainer.style.backgroundColor = "var(--theme-color)";
+                modalContainer.style.display = "flex";
+                modalSubheading.querySelector(".score_text").textContent = score.toString();
+                modal.classList.add("animate__animated");
+                modal.classList.add("animate__bounceIn");
             }
+            counter += 1;
         });
     });
     
