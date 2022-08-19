@@ -74,7 +74,7 @@ body {
     font-family: "Poppins", sans-serif;
     font-weight: 800;
     color: rgb(77, 77, 77);
-    font-size: 1.5em;
+    font-size: 1.2em;
     letter-spacing: 1.5px;
     justify-content: center;
     align-items: center;
@@ -83,16 +83,34 @@ body {
 
 .credit_box {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     position: absolute;
-    bottom: 80px;
+    bottom: 10px;
+    /* background-color: #000; */
+}
+
+#college_logo {
+    width: 8vw;
+    margin-right: 10px;
+    opacity: 0.8;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
 }
 
 .credits {
     font-size: 0.8em;
-    opacity: 0.8;
+    opacity: 0.6;
 }
 
 .credits span {
@@ -108,7 +126,7 @@ body {
 }
 
 .guess_heading {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 .logos {
@@ -118,8 +136,9 @@ body {
 }
 
 .logo_div {
+    position: relative;
     opacity: 0;
-    width: 20vw;
+    width: 18vw;
     aspect-ratio: 1/1;
     padding: 25px;
     margin: 20px;
@@ -130,6 +149,17 @@ body {
     box-shadow: 3.4px 3.4px 10px rgba(0, 0, 0, 0.05),
         17px 17px 15px rgba(0, 0, 0, 0.1),
         -2px -2px 15px rgba(0,0,0,.1);
+}
+
+.badge {
+    opacity: 0;
+    color: var(--success-color);
+    border-radius: 100%;
+    border: 7px solid white;
+    position: absolute;
+    font-size: 2.5em;
+    bottom: -20px;
+    left: -20px;
 }
 
 .logo_imgs {
@@ -168,15 +198,14 @@ body {
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    transition: .3s;
-    animation-delay: .6s;
+    transition: 0.3s;
+    animation-delay: 0.6s;
 }
 
 #next_logo:hover {
     box-shadow: 3.4px 3.4px 10px rgba(0, 0, 0, 0.05),
-    17px 17px 15px rgba(0, 0, 0, 0.1),
-    -2px -2px 15px rgba(0,0,0,.1);;
-    opacity: .8;
+        17px 17px 15px rgba(0, 0, 0, 0.1), -2px -2px 15px rgba(0, 0, 0, 0.1);
+    opacity: 0.8;
 }
 
 .modal_container {
@@ -195,8 +224,7 @@ body {
 .modal {
     padding: 30px;
     box-shadow: 3.4px 3.4px 10px rgba(0, 0, 0, 0.05),
-    17px 17px 15px rgba(0, 0, 0, 0.1),
-    -2px -2px 15px rgba(0,0,0,.1);;
+        17px 17px 15px rgba(0, 0, 0, 0.1), -2px -2px 15px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(16px) saturate(180%);
     -webkit-backdrop-filter: blur(16px) saturate(180%);
     background-color: rgba(255, 255, 255, 0.75);
@@ -215,7 +243,7 @@ body {
     color: rgba(34, 34, 34, 0.795);
 }
 
-.modal h2{
+.modal h2 {
     font-size: 1.2em;
 }
 

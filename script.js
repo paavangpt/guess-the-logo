@@ -80,21 +80,25 @@ function loadMainPage() {
     let random = Math.random();
     rightLogo = random > 0.5 ? 1 : 2;
     curLogos = files[counter];
-
+    
     console.log(rightLogo);
-
+    
     logos.forEach((logo, index) => {
         logo.addEventListener("click", (e) => {
             if (counter == 1) {
                 message.style.opacity = 1;
             }
-
+            
             logoDivs[0].style.pointerEvents = "none";
             logoDivs[1].style.pointerEvents = "none";
             if (index + 1 == rightLogo) {
                 logoDivs[index].style.border = "7px solid var(--success-color)";
-                logoDivs[index].style.width = "22vw";
-
+                logoDivs[index].style.width = "19vw";
+                logoDivs[index].querySelector(".badge").style.opacity = "1";
+                logoDivs[index].querySelector(".badge").style.animationDuration = ".8s"
+                logoDivs[index].querySelector(".badge").classList.add("animate__bounceIn");
+                logoDivs[index].querySelector(".badge").classList.remove("animate__bounceOut");
+                
                 message.style.color = "var(--success-color)";
                 message.textContent = winStatements[Math.floor(Math.random() * 3)];
                 score += 1;
@@ -104,6 +108,11 @@ function loadMainPage() {
                 logoDivs[index == 0 ? 1 : 0].style.width = "22vw";
                 message.style.color = "var(--danger-color)";
                 message.textContent = loseStatements[Math.floor(Math.random() * 2)];
+
+                logoDivs[index == 0 ? 1 : 0].querySelector(".badge").style.opacity = "1";
+                logoDivs[index == 0 ? 1 : 0].querySelector(".badge").style.animationDuration = ".8s"
+                logoDivs[index == 0 ? 1 : 0].querySelector(".badge").classList.add("animate__bounceIn");
+                logoDivs[index == 0 ? 1 : 0].querySelector(".badge").classList.remove("animate__bounceOut");
             }
             
             message.style.opacity = "1"
@@ -129,21 +138,25 @@ function loadMainPage() {
         message.style.animationDuration = "0s";
         message.classList.remove("animate__bounceIn");
         message.classList.add("animate__bounceOut");
-
+        
         logoDivs[0].classList.remove("animate__fadeInUp");
         logoDivs[0].classList.add("animate__fadeInUp");
         logoDivs[1].classList.remove("animate__fadeInUp");
         logoDivs[1].classList.add("animate__fadeInUp");
-
+        
         logoDivs.forEach((logoDiv) => {
-            logoDiv.style.width = "20vw";
+            logoDiv.style.width = "18vw";
             logoDiv.style.border = "none";
+            logoDiv.querySelector(".badge").style.animationDuration = "0s";
+            logoDiv.querySelector(".badge").style.opacity = "0";
+            logoDiv.querySelector(".badge").classList.add("animate__bounceOut");
+            logoDiv.querySelector(".badge").classList.remove("animate__bounceIn");
         });
-
+        
         rightLogo = Math.random() > 0.5 ? 1 : 2;
         showNewLogos(rightLogo);
     });
-
+    
     showNewLogos(rightLogo);
 }
 
